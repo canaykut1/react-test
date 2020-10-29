@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/store'
 // import * as actions from './redux/actions'
 import {Provider} from 'react-redux'
-
+//test comment
 ReactDOM.render(
   <Provider store = {store}>
 <React.StrictMode>
