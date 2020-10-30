@@ -17,7 +17,7 @@ function todoReducer(state = initTodoList, action) {
         case actionTypes.TODO_ADDDED:
             return [...state, {
                 id: uuidv4(),
-                isCompleted: false,
+                isCompleted: (action.payload.isCompleted)?action.payload.isCompleted:false,
                 description: action.payload.description
             }]
         case actionTypes.TODO_REMOVED:
