@@ -15,7 +15,7 @@ export default function NewTodo() {
     const AddTodo = e =>{
         e.preventDefault();
         console.log(input)
-        dispatch(actions.todo_add(input.newTodo))
+        dispatch(actions.todo_add(input.newTodo,false))
      }
     //  const UpdateInput = e =>{
     //     // store.dispatch(actions.input_changed(e.target.value))
