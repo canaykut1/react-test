@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import * as actions from '../redux/actions'
+import * as actions from '../../redux/actions'
 import {useDispatch} from 'react-redux'
 
 export default function NewTodo() {    

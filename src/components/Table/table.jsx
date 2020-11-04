@@ -1,7 +1,6 @@
-import Todo from "./todo";
-import { useSelector,useDispatch } from 'react-redux'
+import Todo from "../Todo/todo";
+import { useSelector } from 'react-redux'
 import React from 'react';
-import * as actions from '../redux/actions'
 
 
 // import store from "../redux/store";

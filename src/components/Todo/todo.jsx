@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch}  from 'react-redux'
-import * as actions from '../redux/actions'
+import * as actions from '../../redux/actions'
 
 export default function Todo({id,description,isCompleted} ) {
    // console.log(props)

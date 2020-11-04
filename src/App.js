@@ -1,11 +1,9 @@
-import TodoTable from './components/table'
 import './App.css';
-import NewTodo from './components/newTodo'
 import axios from 'axios';
 import {useEffect} from 'react';
 import * as actions from   './redux/actions'
 import {useDispatch} from 'react-redux'
-import Counter from './components/counter'
+import {Counter,NewTodo,TodoTable} from './components'
 
 
 function App() {
