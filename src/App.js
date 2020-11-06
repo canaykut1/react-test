@@ -1,10 +1,12 @@
+
 import './App.css';
 import axios from 'axios';
 import {useEffect} from 'react';
 import * as actions from   './redux/actions'
 import {useDispatch} from 'react-redux'
-import {Counter,NewTodo,TodoTable} from './components'
-
+import {Counter,NewTodo,TodoTable,Form} from './components'
+import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.light.css';
 
 function App() {
   const dispatch = useDispatch()
@@ -24,6 +26,7 @@ function App() {
   return (
         
         <div>
+          <Form/>
           <Counter/>
           <NewTodo/>
           <TodoTable/>
