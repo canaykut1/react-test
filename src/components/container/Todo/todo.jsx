@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch}  from 'react-redux';
 import * as actions from '../../../redux/actions';
 
-export default function Todo({id,description,isCompleted} ) {
+ function Todo({id,description,isCompleted} ) {
    // console.log(props)
     //const {id,description,isCompleted} = props
     const dispatch = useDispatch();
@@ -28,3 +28,5 @@ export default function Todo({id,description,isCompleted} ) {
         </React.Fragment>
     );
 }
+// try to use memo if component in some loop .. thats why it will not render again if not change 
+export default React.memo(Todo);

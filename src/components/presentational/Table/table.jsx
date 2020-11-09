@@ -4,11 +4,11 @@ import React from 'react';
 
 // import store from "../redux/store";
 
-export default function TodoTable() {
+ function TodoTable() {
 
 
 
-  const todoList = useSelector(state=>state.todo);
+      const todoList = useSelector(state=>state.todo);
       console.log(todoList); 
  
   return (
@@ -19,3 +19,4 @@ export default function TodoTable() {
 
   );
 }
+export default TodoTable;
