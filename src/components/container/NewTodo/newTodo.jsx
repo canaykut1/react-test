@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
-import * as actions from '../../redux/actions'
-import {useDispatch} from 'react-redux'
-
+import React, {useState} from 'react';
+import * as actions from '../../../redux/actions';
+import {useDispatch} from 'react-redux';
 export default function NewTodo() {    
     //here you can take all states or you can take as special one 
     //const state = useSelector(state=>state)
@@ -10,13 +9,14 @@ export default function NewTodo() {
     
     const handleInputChange = e =>{
         
-        setInput(prev=>({...prev,[e.target.name] :e.target.value}))
-    }   
+        setInput(prev=>({...prev,[e.target.name] :e.target.value}));
+    };
+
     const AddTodo = e =>{
         e.preventDefault();
-        console.log(input)
-        dispatch(actions.todo_add(input.newTodo,false))
-     }
+        // console.log(input);
+        dispatch(actions.todo_add(input.newTodo,false));
+     };
     //  const UpdateInput = e =>{
     //     // store.dispatch(actions.input_changed(e.target.value))
     //     console.log(e.target.value)
@@ -28,5 +28,5 @@ export default function NewTodo() {
             <input onChange={(e)=>handleInputChange(e)} type="text" name= "newTodo" />
             <input  type="submit" value="Add New Todo "/>
         </form>
-    )
+    );
 }

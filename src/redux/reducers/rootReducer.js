@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import todoReducer from  './todoReducer' 
-import inputReducer from './inputReducer'
+import todoReducer from  './todoReducer';
+import inputReducer from './inputReducer';
 
  export const rootReducer = combineReducers (
     {
@@ -8,4 +8,4 @@ import inputReducer from './inputReducer'
         input: inputReducer
 
     }
-)
+);

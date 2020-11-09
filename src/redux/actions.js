@@ -1,4 +1,4 @@
-import * as actionTypes from     './actionTypes'
+import * as actionTypes from     './actionTypes';
 
 
 export const todo_add= (description,isCompleted)=>{
@@ -8,9 +8,9 @@ export const todo_add= (description,isCompleted)=>{
             description,
             isCompleted
         } 
-    }
+    };
 
-}
+};
 
 export const todo_removed= id =>{
     return {
@@ -18,9 +18,9 @@ export const todo_removed= id =>{
         payload : {
             id
         } 
-    }
+    };
 
-}
+};
 
 
 export const todo_completed= id =>{
@@ -29,13 +29,13 @@ export const todo_completed= id =>{
         payload : {
             id
         } 
-    }
-}
+    };
+};
 
 export const increase= () =>{
     return {
         type: actionTypes.INCREASE,
  
-    }
+    };
 
-}
+};

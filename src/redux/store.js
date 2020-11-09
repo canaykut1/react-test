@@ -1,5 +1,5 @@
 import {rootReducer} from './reducers/rootReducer';
-import {composeWithDevTools} from 'redux-devtools-extension'
+import {composeWithDevTools} from 'redux-devtools-extension';
 import {createStore} from 'redux';
 
 

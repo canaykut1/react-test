@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./Form.css";
-import {produce} from 'immer'
+import {produce} from 'immer';
 import TextBox from "devextreme-react/text-box";
 
 import Chart, { ArgumentAxis, Series, Legend } from "devextreme-react/chart";
@@ -40,8 +40,8 @@ handleButtonClick = ()=>{
         draft.data.push({
             arg: 2020,
             val: 16916183482,
-          })
-    }))
+          });
+    }));
 }
   render() {
     return (
