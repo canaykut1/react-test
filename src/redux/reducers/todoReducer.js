@@ -1,18 +1,8 @@
 import {v4 as uuidv4} from 'uuid';
 import * as actionTypes from '../actionTypes';
-const initTodoList = [{
-    id: 1,
-    description:"deneme 1 ",
-    isCompleted:false 
+import initialStates from './initialStates';
 
-},
-{
-    id: 2,
-    description:"Deneme 2",
-    isCompleted:true 
-
-}];
-function todoReducer(state = initTodoList, action) {
+function todoReducer(state = initialStates.todo, action) {
     switch (action.type) {
         case actionTypes.TODO_ADDDED:
             return [...state, {
@@ -25,6 +15,9 @@ function todoReducer(state = initTodoList, action) {
         
         case actionTypes.TODO_COMPLETED:
             return state.map(todo => todo.id === action.payload.id ? {...todo,isCompleted:!todo.isCompleted}:todo);
+
+            case actionTypes.TODO_FROM_API_SUCCESS:
+                return [...state,...action.payload];
         default:
             return state;
     }

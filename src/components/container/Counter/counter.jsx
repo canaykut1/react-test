@@ -9,19 +9,20 @@ function Counter(props) {
     //useSelector replaced with connect
     //const inputBox = useSelector(state=>state.input);
     const dispatch = useDispatch();
+    console.log(props);
+
     return (
         <div >
           
       <h2> {props.count}</h2>
 
-      <button onClick= {()=>dispatch(actions.increase())}>change</button>
+      <button onClick= {()=>props.increase()}>change</button>
 
         </div>
     );
 }
-
 Counter.propTypes = {
-dispatch: PropTypes.func.isRequired
+increase: PropTypes.func.isRequired
 };
 
 // FOR BETTER PERFORMANCE TRY TO BE SPESIFIC WHICH PART OF THE STATE YOU WANT TO LISTEN AND TRIGGER, OTHERWISE IT WILL TRIGGER ALL TIME FOR ANY CHANGE
@@ -32,7 +33,11 @@ const mapStateToProps = (state) =>{
         //todo : state.todo
     };
 };
+// it will automatically add dispatch if you define mapDispatchToProps as OBJECT if you define as function you must use dispatch function
+const mapDispatchToProps = {
+    increase : actions.increase,
+  };
 
 // if you dont use mapDispatchToProps it will automatically inject all 
 
-export default connect (mapStateToProps) (Counter);
+export default connect (mapStateToProps, mapDispatchToProps) (Counter);

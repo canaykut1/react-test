@@ -9,19 +9,8 @@ import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // Update the document title using the browser API
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then((res) => {
-        const list = res.data;
-        list.forEach((todo) => {
-          dispatch(actions.todo_add(todo.title, todo.completed));
-        });
-        console.log(list);
-      });
-  });
+  
+ 
   return (
     <div>
       <Form />

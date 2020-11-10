@@ -1,6 +1,7 @@
 import Todo from "../../container/Todo/todo";
 import {connect} from 'react-redux';
-import React from 'react';
+import React, { useEffect } from 'react';
+import {todos_from_API} from '../../../redux/actions';
 
 // import store from "../redux/store";
 
@@ -8,13 +9,20 @@ import React from 'react';
 
 
 
+ 
+  useEffect(() => {
+    // Update the document title using the browser API
+        props.todos_from_API();
+
+  },[]);
+
       //const todoList = useSelector(state=>state.todo);
       console.log(props); 
  
   return (
      
       <ul>
-        {props.todo.map(todo=> <Todo key={todo.id} description = {todo.description} id={todo.id} isCompleted = {todo.isCompleted}/> )} 
+        {props.todo.map(todo=> <Todo key={todo.id} description = {todo.description||todo.title} id={todo.id} isCompleted = {todo.isCompleted || todo.completed}/> )} 
       </ul>
 
   );
@@ -29,7 +37,7 @@ const mapStateToProps = (state) =>{
   };
 };
 
-// if you dont use mapDispatchToProps it will automatically inject all 
 
 
-export default connect (mapStateToProps)(TodoTable);
+
+export default connect (mapStateToProps, {todos_from_API})(TodoTable);

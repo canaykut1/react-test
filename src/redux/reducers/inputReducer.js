@@ -1,8 +1,8 @@
 import * as actionTypes from '../actionTypes';
+import inintialStates from './initialStates';
 
 
-const initInput = '5';
- function inputReducer(state = initInput, action) {
+ function inputReducer(state = inintialStates.initInput, action) {
     switch (action.type) {
        case actionTypes.INCREASE:
            return  parseInt(state)+1;
