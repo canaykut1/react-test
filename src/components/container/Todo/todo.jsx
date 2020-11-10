@@ -2,9 +2,9 @@ import React from 'react';
 import {useDispatch}  from 'react-redux';
 import * as actions from '../../../redux/actions';
 
- function Todo({id,description,isCompleted} ) {
+ function Todo({id,title,completed} ) {
    // console.log(props)
-    //const {id,description,isCompleted} = props
+    //const {id,title,completed} = props
     const dispatch = useDispatch();
     const deleteTodo = ()=>
      {
@@ -17,11 +17,11 @@ import * as actions from '../../../redux/actions';
     };
     return (
         <React.Fragment> 
-            <span style={(isCompleted)?{color:"blue"}:{color:"red"}}>
+            <span style={(completed)?{color:"blue"}:{color:"red"}}>
                 <li>{id}</li>
-                <li>{description}</li>
+                <li>{title}</li>
                 <button onClick={deleteTodo} style={{background:"red", color:"white" }}>Delete</button>
-                <button onClick={completedTodo}>{isCompleted?"Re-Open":"Completed"}</button>
+                <button onClick={completedTodo}>{completed?"Re-Open":"Completed"}</button>
 
             </span>    
            

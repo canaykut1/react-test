@@ -7,14 +7,14 @@ function todoReducer(state = initialStates.todo, action) {
         case actionTypes.TODO_ADDDED:
             return [...state, {
                 id: uuidv4(),
-                isCompleted: (action.payload.isCompleted)?action.payload.isCompleted:false,
-                description: action.payload.description
+                completed: (action.payload.completed)?action.payload.completed:false,
+                title: action.payload.title
             }];
         case actionTypes.TODO_REMOVED:
             return state.filter(todo => todo.id !== action.payload.id);
         
         case actionTypes.TODO_COMPLETED:
-            return state.map(todo => todo.id === action.payload.id ? {...todo,isCompleted:!todo.isCompleted}:todo);
+            return state.map(todo => todo.id === action.payload.id ? {...todo,completed:!todo.completed}:todo);
 
             case actionTypes.TODO_FROM_API_SUCCESS:
                 return [...state,...action.payload];

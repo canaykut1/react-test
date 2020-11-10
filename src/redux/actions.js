@@ -2,12 +2,12 @@ import axios from 'axios';
 import * as actionTypes from     './actionTypes';
 
 
-export const todo_add= (description,isCompleted)=>{
+export const todo_add= (title,completed)=>{
     return {
         type: actionTypes.TODO_ADDDED,
         payload : {
-            description,
-            isCompleted
+            title,
+            completed
         } 
     };
 

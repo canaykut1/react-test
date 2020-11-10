@@ -1,43 +1,66 @@
 import Todo from "../../container/Todo/todo";
-import {connect} from 'react-redux';
-import React, { useEffect } from 'react';
-import {todos_from_API} from '../../../redux/actions';
+import { connect } from "react-redux";
+import React, { Fragment, useEffect, useState} from "react";
+import { todos_from_API } from "../../../redux/actions";
+import TotalTodo from "../../container/TotalTodo/totalTodo";
 
 // import store from "../redux/store";
 
- function TodoTable(props) {
-
-
-
- 
+function TodoTable(props) {
   useEffect(() => {
     // Update the document title using the browser API
-        props.todos_from_API();
+    props.todos_from_API();    
+  
 
-  },[]);
+  }, []);
 
-      //const todoList = useSelector(state=>state.todo);
-      console.log(props); 
- 
+  const [sums,setSums] = useState({});
+   const {todo} = props;    
+   console.log(sums);
+
+  //const todoList = useSelector(state=>state.todo);
+  const calculateSums = (todo)=>{
+    const totalSum = todo.length;
+    let completedSum = todo.filter(element =>  (element.completed === true)).length;
+    let openSum = todo.filter(element =>  (element.completed === false)).length;
+
+    setSums({"totalSum":totalSum,"completedSum":completedSum,"openSum":openSum});
+
+
+  };
+  useEffect(() => {
+    // Update the document title using the browser API
+    calculateSums(todo);
+  },[todo]);
+
   return (
-     
+    <Fragment>
+      <TotalTodo sums = {sums} />
       <ul>
-        {props.todo.map(todo=> <Todo key={todo.id} description = {todo.description||todo.title} id={todo.id} isCompleted = {todo.isCompleted || todo.completed}/> )} 
+        {props.todo.map((todo) => (
+          <Todo
+            key={todo.id}
+            title={todo.title }
+            id={todo.id}
+            completed={todo.completed }
+          />
+        ))}
       </ul>
-
+    </Fragment>
   );
 }
 
 // FOR BETTER PERFORMANCE TRY TO BE SPESIFIC WHICH PART OF THE STATE YOU WANT TO LISTEN AND TRIGGER, OTHERWISE IT WILL TRIGGER ALL TIME FOR ANY CHANGE
 // second paramater can be own props as  (state,ownprops) for this sample we dont need to use ownProps
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state) => {
   return {
-      //count : state.input,
-      todo : state.todo
+    //count : state.input,
+    todo: state.todo,
   };
 };
 
+const mapDispatchToProps = {
+  todos_from_API,
+};
 
-
-
-export default connect (mapStateToProps, {todos_from_API})(TodoTable);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoTable);
