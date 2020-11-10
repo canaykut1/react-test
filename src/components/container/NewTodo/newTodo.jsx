@@ -15,8 +15,16 @@ export default function NewTodo() {
     const AddTodo = e =>{
         e.preventDefault();
         // console.log(input);
+        if(input){
         dispatch(actions.todo_add(input,false));
         setInput("");
+        }
+        else {
+        console.log("you must type something");
+        }
+        
+        
+        
      };
     //  const UpdateInput = e =>{
     //     // store.dispatch(actions.input_changed(e.target.value))
