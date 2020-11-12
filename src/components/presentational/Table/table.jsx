@@ -1,21 +1,15 @@
 import Todo from "../../container/Todo/todo";
 import { connect } from "react-redux";
 import React, { Fragment, useEffect, useState} from "react";
-import { todos_from_API } from "../../../redux/actions";
 import TotalTodo from "../../container/TotalTodo/totalTodo";
+import { NewTodo } from "../../container";
 
 // import store from "../redux/store";
 
-function TodoTable(props) {
-  useEffect(() => {
-    // Update the document title using the browser API
-    props.todos_from_API();    
-  
+function TodoTable({todos_from_API,todo}) {
 
-  }, []);
 
   const [sums,setSums] = useState({});
-   const {todo} = props;    
    console.log(sums);
 
   //const todoList = useSelector(state=>state.todo);
@@ -36,8 +30,9 @@ function TodoTable(props) {
   return (
     <Fragment>
       <TotalTodo sums = {sums} />
+      <NewTodo/>
       <ul>
-        {props.todo.map((todo) => (
+        {todo.map((todo) => (
           <Todo
             key={todo.id}
             title={todo.title }
@@ -59,8 +54,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  todos_from_API,
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoTable);
+export default connect(mapStateToProps)(TodoTable);

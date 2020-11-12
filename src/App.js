@@ -1,24 +1,34 @@
 import "./App.css";
-import axios from "axios";
-import React, { useEffect } from "react";
-import * as actions from "./redux/actions";
-import { useDispatch } from "react-redux";
-import { Counter, NewTodo } from "./components/container";
-import { TodoTable, Form } from "./components/presentational";
+import React, {useEffect}from "react";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
+import  MainContent  from "./components/presentational/MainContent/mainContent";
+import { todos_from_API } from "./redux/actions";
+import { connect } from "react-redux";
 
-function App() {
+
+function App({todos_from_API}) {
+  useEffect(() => {
+    // Update the document title using the browser API
+    todos_from_API();    
   
- 
+// eslint-disable-next-line 
+  }, []);
+
   return (
     <div>
-      <Form />
-      <Counter />
-      <NewTodo />
-      <TodoTable />
+      <MainContent />
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+ 
+  };
+};
 
-export default App;
+const mapDispatchToProps = {
+  todos_from_API,
+};
+
+export default connect(mapStateToProps,mapDispatchToProps) (App);
