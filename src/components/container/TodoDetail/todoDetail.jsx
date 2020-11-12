@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 
-function TodoDetail({match}) {
+function TodoDetail({match,history}) {
     // instead of match you can use useParams from react-dom router
   const [todo, settodo] = useState({});
   console.log(todo);
@@ -21,6 +21,7 @@ function TodoDetail({match}) {
       <h1>{todo.id}</h1>
       <h1>{todo.title}</h1>
       <h1>{todo.completed?todo.completed.toString():null}</h1>
+      <button onClick={()=>{history.goBack();}}>GO BACK </button>
     </div>
   );
 }
