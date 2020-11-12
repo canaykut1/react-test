@@ -1,4 +1,3 @@
-import { DefaultItemProperties } from "devextreme-react/diagram";
 import React from "react";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../redux/actions";
