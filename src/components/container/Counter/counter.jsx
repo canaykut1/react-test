@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector,connect,useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import * as actions from '../../../redux/actions';
 import PropTypes from 'prop-types';
 
@@ -8,8 +8,6 @@ import PropTypes from 'prop-types';
 function Counter(props) {
     //useSelector replaced with connect
     //const inputBox = useSelector(state=>state.input);
-    const dispatch = useDispatch();
-    console.log(props);
 
     return (
         <div >

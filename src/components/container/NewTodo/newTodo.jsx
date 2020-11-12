@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import * as actions from '../../../redux/actions';
 import {useDispatch} from 'react-redux';
+import notify from "devextreme/ui/notify";
+
 export default function NewTodo() {    
     //here you can take all states or you can take as special one 
     //const state = useSelector(state=>state)
@@ -18,9 +20,11 @@ export default function NewTodo() {
         if(input){
         dispatch(actions.todo_add(input,false));
         setInput("");
+        notify("Added Succesfully", "success", 1000);
+
         }
         else {
-        console.log("you must type something");
+            notify("Please Type Something", "error", 1000);
         }
         
         

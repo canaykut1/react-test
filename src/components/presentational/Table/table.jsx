@@ -9,16 +9,21 @@ import { NewTodo } from "../../container";
 function TodoTable({todos_from_API,todo}) {
 
 
-  const [sums,setSums] = useState({});
+  const [sums,setSums] = useState([]);
    console.log(sums);
 
   //const todoList = useSelector(state=>state.todo);
   const calculateSums = (todo)=>{
+    let sumArray = [];
     const totalSum = todo.length;
     let completedSum = todo.filter(element =>  (element.completed === true)).length;
     let openSum = todo.filter(element =>  (element.completed === false)).length;
+    sumArray.push({type:"Total Todo" , val:totalSum});
+    sumArray.push({type:"Completed Todo", val:completedSum});
+    sumArray.push({type:"Open Todo", val:openSum});
 
-    setSums({"totalSum":totalSum,"completedSum":completedSum,"openSum":openSum});
+    setSums(sumArray);
+    // setSums({"totalSum":totalSum,"completedSum":completedSum,"openSum":openSum});
 
 
   };

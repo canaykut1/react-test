@@ -81,7 +81,6 @@ class Form extends React.Component {
 
   sayHelloWorld = () => {
     notify(this.state.text, "success", 1000);
-    console.log(this.state.text);
   };
 }
 

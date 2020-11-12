@@ -11,10 +11,9 @@ import PropTypes from "prop-types";
 import WelcomePage from "../../container/WelcomePage/welcomePage";
 
 class MainContent extends React.Component {
-
   constructor(props) {
     super(props);
-    console.log("mainpageProps",props);
+    console.log("mainpageProps", props);
     this.state = {
       opened: false,
       openedStateMode: "overlap",
@@ -42,7 +41,7 @@ class MainContent extends React.Component {
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
   };
   render() {
     const { opened, openedStateMode, position, revealMode } = this.state;
@@ -53,9 +52,13 @@ class MainContent extends React.Component {
           <Item
             widget='dxButton'
             location='before'
-            options={{ type: "back", text: "BACK" ,
-          onClick:()=>{this.props.history.goBack();}
-          }}
+            options={{
+              type: "back",
+              text: "BACK",
+              onClick: () => {
+                this.props.history.goBack();
+              },
+            }}
           />
 
           <Item
@@ -90,6 +93,7 @@ class MainContent extends React.Component {
     );
   }
 }
-// BrowserRouter moved to App component to wrap all app and then we had history in props  with !!! withRouter 
 
-export default withRouter( MainContent);
+// BrowserRouter moved to App component to wrap all app and then we had history in props  with !!! withRouter
+
+export default withRouter(MainContent);
