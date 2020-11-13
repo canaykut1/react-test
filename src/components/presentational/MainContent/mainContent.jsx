@@ -5,11 +5,11 @@ import "./mainContent.scss";
 import NavigationList from "../../container/NavigationList/navList";
 import Form from "../DevExtremeComponents/Form";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
-import { Counter, TodoDetail,WelcomePage } from "../../container";
+import { Counter, Logo, TodoDetail, WelcomePage } from "../../container";
 import { TodoTable } from "..";
 import PropTypes from "prop-types";
-import Logo from "../../../img/abb-logo.png";
 import NotFound from "../NotFound/notFound";
+import {useTranslation} from 'react-i18next';
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -32,19 +32,14 @@ class MainContent extends React.Component {
         },
       },
     ];
-
-    this.logoRenderer= this.logoRenderer.bind(this);
+    this.handleChangeLanguage = this.handleChangeLanguage.bind(this);
     this.onOutsideClick = this.onOutsideClick.bind(this);
   }
 
   onOutsideClick() {
     this.setState({ opened: false });
   }
-  logoRenderer () {
-
-    return (<img className="logo" src={Logo}/>);
-
-  }
+  handleChangeLanguage() {}
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
@@ -68,10 +63,39 @@ class MainContent extends React.Component {
             }}
           />
 
-   
-           <Item location={'after'} render={this.logoRenderer}  />     
-         {/* cssClass={'header-title'} text="ABB" */}
-             <Item
+          <Item location={"after"} render={Logo} />
+          <Item
+            widget='dxButton'
+            location='before'
+            options={{
+              text: "EN",
+              onClick: () => {
+                this.handleChangeLanguage("en");
+              },
+            }}
+          />
+          <Item
+            widget='dxButton'
+            location='before'
+            options={{
+              text: "TR",
+              onClick: () => {
+                this.handleChangeLanguage("tr");
+              },
+            }}
+          />
+          <Item
+            widget='dxButton'
+            location='before'
+            options={{
+              text: "ES",
+              onClick: () => {
+                this.handleChangeLanguage("es");
+              },
+            }}
+          />
+          {/* cssClass={'header-title'} text="ABB" */}
+          <Item
             widget='dxButton'
             location='after'
             options={{
@@ -97,7 +121,6 @@ class MainContent extends React.Component {
               <Route path='/todo/:id' exact component={TodoDetail} />
               <Route path='/counter' component={Counter} />
               <Route component={NotFound} />
-
             </Switch>
           </div>
         </Drawer>

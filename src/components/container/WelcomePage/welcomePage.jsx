@@ -1,4 +1,5 @@
 import React from "react";
+import './welcomePage.scss';
 
 function WelcomePage() {
   return (

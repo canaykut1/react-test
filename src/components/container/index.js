@@ -5,3 +5,4 @@ export {default as NavList} from './NavigationList/navList';
 export {default as TotalTodo} from './TotalTodo/totalTodo';
 export {default as WelcomePage} from './WelcomePage/welcomePage'; 
 export {default as TodoDetail} from './TodoDetail/todoDetail';
+export {default as Logo} from './Logo/logo';
