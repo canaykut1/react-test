@@ -11,7 +11,6 @@ import PieChart, {
 
 function TotalTodo({sums}) {
    // const {sum} = props;
-    console.log(sums);
     return (
 
 

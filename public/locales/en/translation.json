@@ -1,0 +1,31 @@
+{
+	"menu_list": {
+		"chart": "Chart",
+		"counter": "Counter",
+		"main_page": "Main Page",
+		"todo_list": "Todo List"
+	},
+	"pages": {
+		"counter": {
+			"change": "Change"
+		},
+		"mainpage": {
+			"welcome": "Welcome to main page"
+		},
+		"todo": {
+			"add_new_todo": "Add New Todo",
+			"completed": "Completed",
+			"completed_todos": "Completed Todos",
+			"delete": "Delete",
+			"details": "Details",
+			"messages": {
+				"added_ko": "Todo added succesfully",
+				"added_ok": "Please Type Something"
+			},
+			"open_todos": "Open Todos",
+			"reopen": "Re-Open",
+			"todo_status": "Todo Status",
+			"total_todos": "Total Todos"
+		}
+	}
+}

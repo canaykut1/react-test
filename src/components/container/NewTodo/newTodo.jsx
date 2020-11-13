@@ -6,6 +6,8 @@ import { Popup } from "devextreme-react/popup";
 import Button from "devextreme-react/button";
 import "./newTodo.scss";
 import TextBox from "devextreme-react/text-box";
+import {useTranslation} from 'react-i18next';
+
 
 export default function NewTodo() {
   //here you can take all states or you can take as special one
@@ -13,6 +15,8 @@ export default function NewTodo() {
   const [input, setInput] = useState("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const dispatch = useDispatch();
+  const {t,i18n} = useTranslation();
+
 
   const renderButton =(buttonData)=>{
     return (<p className="renderButton-inside" >ADD</p>);
@@ -56,10 +60,10 @@ export default function NewTodo() {
     if (input) {
       dispatch(actions.todo_add(input, false));
       setInput("");
-      notify("Added Succesfully", "success", 1000);
+      notify(t("pages.todo.messages.added_ok"), "success", 1000);
       setIsPopupVisible(false);
     } else {
-      notify("Please Type Something", "error", 1000);
+      notify(t("pages.todo.messages.added_ko"), "error", 1000);
     }
   };
   //  const UpdateInput = e =>{
@@ -73,11 +77,11 @@ export default function NewTodo() {
   return (
     <React.Fragment>
       <div>
-        <span className='add-text'>ADD NEW TODO</span>
+  <span className='add-text'>{t("pages.todo.add_new_todo")}</span>
         <Button icon='plus' onClick={showPopup} />
       </div>
       <Popup
-        title='Add New Todo'
+        title={t("pages.todo.add_new_todo")}
         height={180}
         width={500}
         visible={isPopupVisible}

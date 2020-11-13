@@ -2,11 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../redux/actions";
 import { Link } from "react-router-dom";
+import {useTranslation} from 'react-i18next';
+
 
 function Todo({ id, title, completed }) {
   // console.log(props)
   //const {id,title,completed} = props
   const dispatch = useDispatch();
+
   const deleteTodo = () => {
     console.log(id);
     dispatch(actions.todo_removed(id));

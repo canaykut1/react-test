@@ -1,0 +1,31 @@
+{
+	"menu_list": {
+		"chart": "Gráfico",
+		"counter": "Mostrador",
+		"main_page": "Página principal",
+		"todo_list": "Lista de quehaceres"
+	},
+	"pages": {
+		"counter": {
+			"change": "cambio"
+		},
+		"mainpage": {
+			"welcome": "Bienvenidos a la pagina principal"
+		},
+		"todo": {
+			"add_new_todo": "Agregar nuevo todo",
+			"completed": "terminado",
+			"completed_todos": "Todos completados",
+			"delete": "Borrar",
+			"details": "Detalles",
+			"messages": {
+				"added_ko": "Todo agregado con éxito",
+				"added_ok": "Por favor escriba algo"
+			},
+			"open_todos": "Abrir Todos",
+			"reopen": "REABRIR",
+			"todo_status": "Todo Estado",
+			"total_todos": "Total Todos"
+		}
+	}
+}

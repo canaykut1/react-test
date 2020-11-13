@@ -4,20 +4,16 @@ import { Link } from "react-router-dom";
 import React, { Fragment, useEffect, useState } from "react";
 import TotalTodo from "../../container/TotalTodo/totalTodo";
 import { NewTodo } from "../../container";
-import DataGrid, {
-  Column,
-  Pager,
-  Paging,
-  Editing,
-  Popup,
-} from "devextreme-react/data-grid";
+import DataGrid, { Column, Pager, Paging } from "devextreme-react/data-grid";
 import { todo_completed, todo_removed } from "../../../redux/actions";
-
+import { useTranslation } from "react-i18next";
+import './table.scss';
 // import store from "../redux/store";
 
 function TodoTable({ todo_completed, todo, todo_removed }) {
   const [sums, setSums] = useState([]);
-  console.log(sums);
+
+  const { t, i18n } = useTranslation();
 
   //const todoList = useSelector(state=>state.todo);
   const calculateSums = (todo) => {
@@ -26,9 +22,9 @@ function TodoTable({ todo_completed, todo, todo_removed }) {
     let completedSum = todo.filter((element) => element.completed === true)
       .length;
     let openSum = todo.filter((element) => element.completed === false).length;
-    sumArray.push({ type: "Total Todo", val: totalSum });
-    sumArray.push({ type: "Completed Todo", val: completedSum });
-    sumArray.push({ type: "Open Todo", val: openSum });
+    sumArray.push({ type: t("pages.todo.total_todos"), val: totalSum });
+    sumArray.push({ type: t("pages.todo.completed_todos"), val: completedSum });
+    sumArray.push({ type: t("pages.todo.open_todos"), val: openSum });
 
     setSums(sumArray);
     // setSums({"totalSum":totalSum,"completedSum":completedSum,"openSum":openSum});
@@ -47,17 +43,17 @@ function TodoTable({ todo_completed, todo, todo_removed }) {
             todo_completed(id);
           }}
         >
-          {completed ? "Re-Open" : "Completed"}
+          {completed ? t("pages.todo.reopen") : t("pages.todo.completed")}
         </button>
         <button
           onClick={() => {
             todo_removed(id);
           }}
         >
-          Delete
+          {t("pages.todo.delete")}
         </button>
         <Link to={`/todo/${id}`}>
-          <button>Details</button>
+          <button>{t("pages.todo.details")}</button>
         </Link>
       </div>
     );
@@ -66,7 +62,7 @@ function TodoTable({ todo_completed, todo, todo_removed }) {
     <Fragment>
       <TotalTodo sums={sums} />
       <NewTodo />
-    
+
       <DataGrid dataSource={todo} showBorders={true}>
         {/* <Editing
           mode='popup'

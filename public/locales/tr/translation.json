@@ -1,0 +1,31 @@
+{
+	"menu_list": {
+		"chart": "Grafik",
+		"counter": "Sayaç",
+		"main_page": "Ana Sayfa",
+		"todo_list": "Yapılacaklar listesimenu"
+	},
+	"pages": {
+		"counter": {
+			"change": "Değişiklik"
+		},
+		"mainpage": {
+			"welcome": "Ana sayfaya hoş geldiniz"
+		},
+		"todo": {
+			"add_new_todo": "Yeni Yapılacaklar Ekle",
+			"completed": "Tamamlandi",
+			"completed_todos": "Tamamlanan İşler",
+			"delete": "Sil",
+			"details": "Ayrıntılar",
+			"messages": {
+				"added_ko": "Todo başarıyla eklendi",
+				"added_ok": "Lütfen Bir Şey Yazın"
+			},
+			"open_todos": "Acik Yapilacaklar",
+			"reopen": "Yeniden Ac",
+			"todo_status": "Yapılacaklar Durumu",
+			"total_todos": "Toplam Yapılacaklar"
+		}
+	}
+}
