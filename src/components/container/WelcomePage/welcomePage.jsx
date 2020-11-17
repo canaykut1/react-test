@@ -7,7 +7,7 @@ function WelcomePage() {
   const {t,i18n} = useTranslation();
   return (
     <div>
-      <h1>{t("pages.mainpage.welcome")}</h1>
+      <p>{t("pages.mainpage.welcome")} Can Aykut</p>
       <LanguageList/>
 
     </div>

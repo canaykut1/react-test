@@ -31,7 +31,9 @@ function TodoTable({ todo_completed, todo, todo_removed }) {
   };
   useEffect(() => {
     // Update the document title using the browser API
+    
     calculateSums(todo);
+    // eslint-disable-next-line
   }, [todo]);
   const renderGridCell = (data) => {
     const { id, completed } = data.data;

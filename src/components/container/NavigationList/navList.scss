@@ -1,13 +1,37 @@
 .navList {
-  background-color: black;
-  color: white;
-  text-align: center;
   list-style: none;
   text-decoration: none;
-  padding: 2rem;
   font-size: 1rem;
+  text-align: left;
+  font: normal normal normal 14px/16px;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  opacity: 1;
 }
-.navList:hover {
-  background-color: rgb(218, 36, 36);
-  font-size: 1.1rem;
+
+.title {
+  color: #bababa;
+  text-align: left;
+  text-transform: uppercase;
+  margin:20px 10px 20px 10px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bababa;
+  padding:10px;
+}
+.flex-container:hover {
+  border-bottom: 5px solid red;
+}
+.flex-container > .active {
+  border-bottom: 5px solid black;
+}
+
+.flex-child {
+  margin: 3px;
+}
+.icon {
+  margin-right: 30px;
 }
